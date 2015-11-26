@@ -1,0 +1,15 @@
+[
+{% for app in apps %}
+  {
+  "name": "{{ app.name }}",
+  "instances": [
+  {% for instance in app.instances %}
+    {
+    "hostName": "{{ instance.hostname }}",
+    "port": {{ instance.port }}
+    }{% if not loop.last %},{% endif %}
+  {% endfor %}
+  ]
+  }{% if not loop.last %},{% endif %}
+{% endfor %}
+]

@@ -1,0 +1,141 @@
+{
+    "applications": {
+        "application": [
+            {
+                "instance": [
+                    {
+                        "actionType": "ADDED",
+                        "app": "MYAPPLICATION2",
+                        "appGroupName": "APPGROUP",
+                        "asgName": "asgname",
+                        "countryId": 1,
+                        "dataCenterInfo": {
+                            "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                            "name": "MyOwn"
+                        },
+                        "healthCheckUrl": "healthCheckUrl",
+                        "hostName": "my-app2.server",
+                        "ipAddr": "127.0.0.1",
+                        "isCoordinatingDiscoveryServer": "false",
+                        "lastDirtyTimestamp": "1448538737926",
+                        "lastUpdatedTimestamp": "1448538738427",
+                        "leaseInfo": {
+                            "durationInSecs": 90,
+                            "evictionTimestamp": 0,
+                            "lastRenewalTimestamp": 1448538738427,
+                            "registrationTimestamp": 1448538738427,
+                            "renewalIntervalInSecs": 30,
+                            "serviceUpTimestamp": 0
+                        },
+                        "metadata": {
+                            "key": "value"
+                        },
+                        "overriddenstatus": "UNKNOWN",
+                        "port": {
+                            "$": 80,
+                            "@enabled": "true"
+                        },
+                        "secureHealthCheckUrl": "healthCheckUrl",
+                        "securePort": {
+                            "$": 443,
+                            "@enabled": "true"
+                        },
+                        "secureVipAddress": "https://app.yourdomain.net/",
+                        "status": "STARTING",
+                        "vipAddress": "http://app.yourdomain.net/"
+                    }
+                ],
+                "name": "MYAPPLICATION2"
+            },
+            {
+                "instance": [
+                    {
+                        "actionType": "ADDED",
+                        "app": "MYAPPLICATION",
+                        "appGroupName": "APPGROUP",
+                        "asgName": "asgname",
+                        "countryId": 1,
+                        "dataCenterInfo": {
+                            "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                            "name": "MyOwn"
+                        },
+                        "healthCheckUrl": "healthCheckUrl",
+                        "hostName": "my-app.server1",
+                        "ipAddr": "127.0.0.1",
+                        "isCoordinatingDiscoveryServer": "false",
+                        "lastDirtyTimestamp": "1448538737924",
+                        "lastUpdatedTimestamp": "1448538738427",
+                        "leaseInfo": {
+                            "durationInSecs": 90,
+                            "evictionTimestamp": 0,
+                            "lastRenewalTimestamp": 1448538738427,
+                            "registrationTimestamp": 1448538738427,
+                            "renewalIntervalInSecs": 30,
+                            "serviceUpTimestamp": 0
+                        },
+                        "metadata": {
+                            "key": "value"
+                        },
+                        "overriddenstatus": "UNKNOWN",
+                        "port": {
+                            "$": 80,
+                            "@enabled": "true"
+                        },
+                        "secureHealthCheckUrl": "healthCheckUrl",
+                        "securePort": {
+                            "$": 443,
+                            "@enabled": "true"
+                        },
+                        "secureVipAddress": "https://app.yourdomain.net/",
+                        "status": "STARTING",
+                        "vipAddress": "http://app.yourdomain.net/"
+                    },
+                    {
+                        "actionType": "ADDED",
+                        "app": "MYAPPLICATION",
+                        "appGroupName": "APPGROUP",
+                        "asgName": "asgname",
+                        "countryId": 1,
+                        "dataCenterInfo": {
+                            "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                            "name": "MyOwn"
+                        },
+                        "healthCheckUrl": "healthCheckUrl",
+                        "hostName": "my-app.server2",
+                        "ipAddr": "127.0.0.1",
+                        "isCoordinatingDiscoveryServer": "false",
+                        "lastDirtyTimestamp": "1448538737918",
+                        "lastUpdatedTimestamp": "1448538738426",
+                        "leaseInfo": {
+                            "durationInSecs": 90,
+                            "evictionTimestamp": 0,
+                            "lastRenewalTimestamp": 1448538828427,
+                            "registrationTimestamp": 1448538738426,
+                            "renewalIntervalInSecs": 30,
+                            "serviceUpTimestamp": 1448538683832
+                        },
+                        "metadata": {
+                            "key": "value"
+                        },
+                        "overriddenstatus": "UP",
+                        "port": {
+                            "$": 80,
+                            "@enabled": "true"
+                        },
+                        "secureHealthCheckUrl": "healthCheckUrl",
+                        "securePort": {
+                            "$": 443,
+                            "@enabled": "true"
+                        },
+                        "secureVipAddress": "https://app.yourdomain.net/",
+                        "status": "UP",
+                        "vipAddress": "http://app.yourdomain.net/"
+                    }
+                ],
+                "name": "MYAPPLICATION"
+            }
+        ],
+        "apps__hashcode": "STARTING_2_UP_1_",
+        "versions__delta": "1"
+    }
+}

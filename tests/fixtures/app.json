@@ -1,0 +1,87 @@
+{
+    "instance": [
+        {
+            "actionType": "ADDED",
+            "app": "MYAPPLICATION",
+            "appGroupName": "APPGROUP",
+            "asgName": "asgname",
+            "countryId": 1,
+            "dataCenterInfo": {
+                "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                "name": "MyOwn"
+            },
+            "healthCheckUrl": "healthCheckUrl",
+            "hostName": "my-app2.server",
+            "ipAddr": "127.0.0.1",
+            "isCoordinatingDiscoveryServer": "false",
+            "lastDirtyTimestamp": "1448531730018",
+            "lastUpdatedTimestamp": "1448531730018",
+            "leaseInfo": {
+                "durationInSecs": 90,
+                "evictionTimestamp": 0,
+                "lastRenewalTimestamp": 1448531730018,
+                "registrationTimestamp": 1448531730018,
+                "renewalIntervalInSecs": 30,
+                "serviceUpTimestamp": 0
+            },
+            "metadata": {
+                "key": "value"
+            },
+            "overriddenstatus": "UNKNOWN",
+            "port": {
+                "$": 80,
+                "@enabled": "true"
+            },
+            "secureHealthCheckUrl": "healthCheckUrl",
+            "securePort": {
+                "$": 443,
+                "@enabled": "true"
+            },
+            "secureVipAddress": "https://app.yourdomain.net/",
+            "status": "STARTING",
+            "vipAddress": "http://app.yourdomain.net/"
+        },
+        {
+            "actionType": "MODIFIED",
+            "app": "MYAPPLICATION",
+            "appGroupName": "APPGROUP",
+            "asgName": "asgname",
+            "countryId": 1,
+            "dataCenterInfo": {
+                "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                "name": "MyOwn"
+            },
+            "healthCheckUrl": "healthCheckUrl",
+            "hostName": "my-app.server",
+            "ipAddr": "127.0.0.1",
+            "isCoordinatingDiscoveryServer": "false",
+            "lastDirtyTimestamp": "1448531730015",
+            "lastUpdatedTimestamp": "1448531730015",
+            "leaseInfo": {
+                "durationInSecs": 90,
+                "evictionTimestamp": 0,
+                "lastRenewalTimestamp": 1448531820016,
+                "registrationTimestamp": 1448531730012,
+                "renewalIntervalInSecs": 30,
+                "serviceUpTimestamp": 1448531721490
+            },
+            "metadata": {
+                "key": "value"
+            },
+            "overriddenstatus": "UP",
+            "port": {
+                "$": 80,
+                "@enabled": "true"
+            },
+            "secureHealthCheckUrl": "healthCheckUrl",
+            "securePort": {
+                "$": 443,
+                "@enabled": "true"
+            },
+            "secureVipAddress": "https://app.yourdomain.net/",
+            "status": "UP",
+            "vipAddress": "http://app.yourdomain.net/"
+        }
+    ],
+    "name": "MYAPPLICATION"
+}
