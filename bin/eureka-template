@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+
+import argparse
+import os
+from time import sleep
+from daemonize import Daemonize
+from eureka_template.command import Command
+from eureka_template.template_writer import TemplateWriter
+from eureka.client import EurekaClient
+
+
+class Daemon(object):
+
+    def __init__(self, template_writer, command, poll_time):
+        self._template_writer = template_writer
+        self._command = command
+        self._poll_time = poll_time
+
+    def start(self):
+        while True:
+            sleep(self._poll_time)
+            if self._template_writer.write():
+                self._command.execute()
+
+
+def main():
+    daemon = Daemon(template_writer, command, poll_time=poll_time)
+    daemon.start()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-e", "--eureka", required=True,
+                        help="Eureka server")
+    parser.add_argument("-t", "--template", required=True,
+                        help="Template file path")
+    parser.add_argument("-o", "--output", required=True,
+                        help="Output file path")
+    parser.add_argument("-c", "--command",
+                        help="Command to execute after template generation")
+    parser.add_argument("-d", "--daemon", action='store_true',
+                        help="Run as daemon")
+    parser.add_argument("-p", "--poll-time", type=int, default=30,
+                        help="Polling interval in seconds")
+
+    args = parser.parse_args()
+
+    eureka_client = EurekaClient(
+        "Template",
+        eureka_url=args.eureka,
+        data_center="MyOwn"
+    )
+
+    template_writer = TemplateWriter(eureka_client, args.template,
+                                     args.output)
+    command = Command(args.command)
+    poll_time = args.poll_time
+
+    template_writer.write()
+    command.execute()
+
+    if args.daemon:
+        pid = "/tmp/eureka-template.pid"
+        daemonize = Daemonize(app="eureka-template", pid=pid, action=main,
+                              chdir=os.getcwd())
+        daemonize.start()
