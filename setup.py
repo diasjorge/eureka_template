@@ -7,5 +7,6 @@ setup(
     author='Jorge Dias',
     author_email='jorge@mrdias.com',
     packages=['eureka_template'],
-    install_requires=['python-eureka']
+    install_requires=['python-eureka'],
+    dependency_links=['https://github.com/diasjorge/python-eureka/tarball/registration#egg=python-eureka']
 )
