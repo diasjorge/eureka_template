@@ -1,0 +1,9 @@
+[
+{% if "MYAPPLICATION" in apps %}
+  { "name": "{{ apps.get("MYAPPLICATION").name }}" }
+{% endif %}
+{% if "NONEXISTING" in apps %}
+  ,
+  { "name": {{ apps.get("NONEXISTING").name }} }
+{% endif %}
+]
