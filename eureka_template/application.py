@@ -60,3 +60,31 @@ class Application(object):
     def __init__(self, name, instances):
         self.name = name
         self.instances = instances
+
+
+class ApplicationCollection(object):
+
+    @classmethod
+    def from_info(cls, eureka_information):
+        applications = {}
+
+        for app_info in eureka_information:
+            app = Application.from_info(app_info)
+            applications[app.name] = app
+
+        return cls(applications)
+
+    def __init__(self, applications):
+        self._applications = applications
+
+    def __iter__(self):
+        return self._applications.itervalues()
+
+    def __contains__(self, name):
+        return name in self._applications
+
+    def __len__(self):
+        return len(self._applications)
+
+    def get(self, name):
+        return self._applications.get(name)

@@ -1,7 +1,36 @@
 import unittest
 import json
-from eureka_template.application import Application, Instance
 import os
+from eureka_template.application import Application, ApplicationCollection
+from eureka_template.application import Instance
+
+
+class TestApplicationCollection(unittest.TestCase):
+
+    def setUp(self):
+        app_file = os.path.join(os.path.dirname(__file__),
+                                'fixtures', 'apps.json')
+        content = open(app_file, 'rb')
+        self.info = json.load(content)["applications"]["application"]
+        self.collection = ApplicationCollection.from_info(self.info)
+
+    def test_from_info_returns_dict(self):
+        self.assertIsInstance(self.collection._applications, dict)
+
+    def test_len(self):
+        self.assertEqual(2, len(self.collection))
+
+    def test_get_returns_app(self):
+        self.assertEqual("MYAPPLICATION",
+                         self.collection.get("MYAPPLICATION").name)
+
+    def test_in_collection(self):
+        self.assertTrue("MYAPPLICATION" in self.collection)
+        self.assertFalse("Random" in self.collection)
+
+    def test_iterator(self):
+        for app in self.collection:
+            self.assertIsInstance(app, Application)
 
 
 class TestApplication(unittest.TestCase):
