@@ -53,8 +53,13 @@ class Application(object):
     @classmethod
     def from_info(cls, eureka_information):
         name = eureka_information["name"]
-        instances = [Instance(instance_info)
-                     for instance_info in eureka_information["instance"]]
+
+        instances_info = eureka_information["instance"]
+
+        if not isinstance(instances_info, list):
+            instances_info = [instances_info]
+
+        instances = [Instance(info) for info in instances_info]
         return cls(name, instances)
 
     def __init__(self, name, instances):

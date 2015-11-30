@@ -49,6 +49,11 @@ class TestApplication(unittest.TestCase):
         for instance in application.instances:
             self.assertIsInstance(instance, Instance)
 
+    def test_instance_info_is_not_list(self):
+        application = Application.from_info({'name': 'MyApp',
+                                             'instance': {'name': 'NAME'}})
+        self.assertEqual('NAME', application.instances[0].get('name'))
+
 
 class TestInstance(unittest.TestCase):
 
