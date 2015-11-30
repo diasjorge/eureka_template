@@ -3,5 +3,5 @@
 
 PROJECT_ROOT=$(dirname $(git rev-parse --git-dir))
 
-pip install --process-dependency-links $PROJECT_ROOT
+pip install -e $PROJECT_ROOT
 pip install -r $PROJECT_ROOT/dev_requirements.txt
