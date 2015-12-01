@@ -6,7 +6,7 @@ from time import sleep
 from daemonize import Daemonize
 from eureka_template.command import Command
 from eureka_template.template_writer import TemplateWriter
-from eureka.client import EurekaClient
+from eureka_client import EurekaClient
 
 
 class Daemon(object):
