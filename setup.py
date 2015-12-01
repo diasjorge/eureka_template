@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='eureka_template',
-    version='0.0.3.dev0',
+    version='0.0.3',
     description='Eureka Templating Library',
     author='Jorge Dias',
     author_email='jorge@mrdias.com',
