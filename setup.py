@@ -7,5 +7,6 @@ setup(
     author='Jorge Dias',
     author_email='jorge@mrdias.com',
     packages=['eureka_template'],
+    scripts=['bin/eureka-template'],
     install_requires=['eureka-client>=0.6.2']
 )
