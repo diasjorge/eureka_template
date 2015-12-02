@@ -10,7 +10,6 @@ setup(
     scripts=['bin/eureka-template'],
     install_requires=[
         'eureka-client>=0.6.2',
-        'daemonize',
         'jinja2'
     ]
 )

@@ -3,30 +3,9 @@
 import argparse
 import os
 from time import sleep
-from daemonize import Daemonize
 from eureka_template.command import Command
 from eureka_template.template_writer import TemplateWriter
 from eureka_client import EurekaClient
-
-
-class Daemon(object):
-
-    def __init__(self, template_writer, command, poll_time):
-        self._template_writer = template_writer
-        self._command = command
-        self._poll_time = poll_time
-
-    def start(self):
-        while True:
-            sleep(self._poll_time)
-            if self._template_writer.write():
-                self._command.execute()
-
-
-def main():
-    daemon = Daemon(template_writer, command, poll_time=poll_time)
-    daemon.start()
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -38,10 +17,10 @@ if __name__ == "__main__":
                         help="Output file path")
     parser.add_argument("-c", "--command",
                         help="Command to execute after template generation")
-    parser.add_argument("-d", "--daemon", action='store_true',
-                        help="Run as daemon")
     parser.add_argument("-p", "--poll-time", type=int, default=30,
                         help="Polling interval in seconds")
+    parser.add_argument("--once", action='store_true',
+                        help="Run once and exit")
 
     args = parser.parse_args()
 
@@ -59,8 +38,8 @@ if __name__ == "__main__":
     template_writer.write()
     command.execute()
 
-    if args.daemon:
-        pid = "/tmp/eureka-template.pid"
-        daemonize = Daemonize(app="eureka-template", pid=pid, action=main,
-                              chdir=os.getcwd())
-        daemonize.start()
+    if not args.once:
+        while True:
+            sleep(args.poll_time)
+            if template_writer.write():
+                command.execute()
