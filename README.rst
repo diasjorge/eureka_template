@@ -7,7 +7,7 @@ About
 
 eureka_template - library to generate files from eureka information
 
-This library helps you generate files based on jinja2 templates based
+This library helps you generate files based on `jinja2`_ templates based
 on information retrieved from `Eureka`_
 
 Installation
@@ -87,4 +87,5 @@ See `LICENSE`_ for the eureka_template full license text.
 
 
 .. _`Eureka`: https://github.com/Netflix/eureka
+.. _`jinja2`: http://jinja.pocoo.org
 .. _`LICENSE`: /LICENSE
